@@ -1,5 +1,5 @@
 
 export default () => <div>
     {process.env.TEST_VAR}
-    {process.env.PINTUSHI_ENDPOINT}
+    {process.env.GRAPHQL_ENDPOINT}
     </div>

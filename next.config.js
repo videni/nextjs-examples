@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   useFileSystemPublicRoutes: false,
-  webpack: (config, options) => {
+  webpack: (config, {isServer}) => {
     config.plugins.push(
       new Dotenv({
         path: path.join(__dirname, '.env'),
@@ -16,6 +16,8 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
     };
 
+    console.log(isServer, config);
+    
     return config;
   }
 }

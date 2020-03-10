@@ -20,7 +20,7 @@ export const createEnvironment = function ({ cache = [] } = {}) {
 
   const isServer = typeof window === 'undefined';
 
-  console.log(process.env.PINTUSHI_ENDPOINT);
+  console.log(process.env.GRAPHQL_ENDPOINT);
 
   const relaySSRMiddleware = isServer
     ? new RelayServerSSR()
@@ -29,7 +29,7 @@ export const createEnvironment = function ({ cache = [] } = {}) {
   const middlewares = [
     relaySSRMiddleware.getMiddleware(),
     urlMiddleware({
-      url: (process.env.PINTUSHI_ENDPOINT as string)
+      url: (process.env.GRAPHQL_ENDPOINT as string)
     }),
     cacheMiddleware({
       size: 100,
