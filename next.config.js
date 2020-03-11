@@ -3,6 +3,10 @@ const path = require('path');
 
 module.exports = {
   useFileSystemPublicRoutes: false,
+  typescript: {
+    ignoreDevErrors: true,
+    ignoreBuildErrors: true,
+  },
   webpack: (config, {isServer}) => {
     config.plugins.push(
       new Dotenv({
@@ -15,8 +19,6 @@ module.exports = {
       ...config.resolve.alias,
       '@': path.resolve(__dirname, 'src'),
     };
-
-    console.log(isServer, config);
     
     return config;
   }
